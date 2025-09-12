@@ -5,7 +5,7 @@ class pageLayout
     static function pageHeader()
     {
         echo '<!DOCTYPE html>
-<html lang="en">
+ <html lang="en">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@ class pageLayout
     <link rel="icon" href="../css/ramani.jpeg">
     <link rel="stylesheet" href="../css/styles.css">
     </head> 
-<body>';
+ <body>';
     }
 
     static function pageNav()
@@ -44,7 +44,7 @@ class pageLayout
     static function pageFooter()
     {
         echo '</body>
-</html>';
+ </html>';
     }
 }
 
@@ -132,7 +132,7 @@ class Product
      <p>Ksh. ' . $price . '</p>
      </div>
      <div class="purchaseButton">
-     <button class="btn">Add To Cart</button>
+     <button type="button" class="btn">Add To Cart</button>
      </div>
      </div>';
     }
