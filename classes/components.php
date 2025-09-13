@@ -43,8 +43,10 @@ class pageLayout
 
     static function pageFooter()
     {
-        echo '</body>
- </html>';
+        echo '
+        <script src="../classes/shop.js"></script>
+        </body>
+        </html>';
     }
 }
 
@@ -118,7 +120,10 @@ class BlogPage extends pageLayout
 
 class Product
 {
-    static function Product(string $imagePath, $name, $weight, $price)
+    public string $name;
+    public string $weight;
+    public int $price;
+    static function Product($imagePath, $name, $weight, $price)
     {
         echo
         '<div class="productCard">
@@ -132,11 +137,11 @@ class Product
      <p>Ksh. ' . $price . '</p>
      </div>
      <div class="purchaseButton">
-     <button type="button" class="btn">Add To Cart</button>
+        <button class="btn"><a href="/buy" class="btn">Add To Cart</a></button>
      </div>
      </div>';
     }
-    static function ShoppingCart(string $name,string $weight,int $price,int $count)
+    static function ShoppingCart($name,$weight,$price,$count)
     {
         echo
         '
@@ -148,7 +153,7 @@ class Product
                     <li><i>PRICE: </i><b>Ksh. ' . $price . '</b></li>
                     <li><i>COUNT: </i><b>' . $count . '</b></li>
                     <li><i>TOTAL: </i><b>Ksh. ' . $price * $count . '</b></li>
-                    <li><button type="submit" value="">Confirm Purchase</button></li>
+                    <li><button type="buttton"><a href="" class="btn">Confirm Purchase</a></button></li>
                 </ul>
             </div>
         </div>
@@ -223,7 +228,7 @@ class Gallery
 
 class Shop
 {
-    static function pageNav(string $pageTitle)
+    static function pageNav($pageTitle)
     {
         echo '
     <div class="container-fluid">
@@ -297,29 +302,6 @@ class Blog
     }
 }
 
-class Checkout extends pageLayout
-{
-
-    static function pageBody()
-    {
-        $conn = new HoneyDB();
-        echo
-        '<div class="pageBody"> ' .
-            Shop::pageNav("CHECKOUT") .
-            Product::ShoppingCart("RAMANI HONEY","1KG",800,5) .
-            Product::ShoppingCart("RAMANI GUMY BEARS","500G",500,3) .
-            $conn->HoneyDB() .
-            '</div>';
-    }
-    static function Checkout()
-    {
-        echo
-        pageLayout::pageHeader() .
-            Checkout::pageBody() .
-            pageLayout::pageFooter();
-    }
-}
-
 class HoneyDB extends Config{
     function HoneyDB(){
         try{
@@ -343,4 +325,16 @@ class Config{
     protected $database = 'HONEYDB';
     protected $username = 'jak';
     protected $password = 'At._.8080';
+}
+
+class Buy extends PageLayout{
+    static function Buy(){
+        PageLayout::pageHeader() .
+        Buy::PageContent() .
+        PageLayout::pageFooter();
+    }
+    static function PageContent()
+    {
+       Product::ShoppingCart(" "," ",800, 1);
+    }
 }

@@ -7,5 +7,5 @@ $app->route('GET /', function () {HomePage::HomePage();});
 $app->route('GET /shop', function () {ShopPage::ShopPage();} );
 $app->route('GET /gallery', function () {GalleryPage::GalleryPage();} );
 $app->route('GET /blog', function () {BlogPage::BlogPage();} );
-$app->route('GET /checkout', function(){Checkout::Checkout();});
+$app->route('GET /buy', function(){Buy::Buy();});
 $app->run();

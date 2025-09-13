@@ -72,6 +72,10 @@ body {
     border-radius: 10px;
 }
 
+a{
+    text-decoration: none;
+}
+
 .productCard img {
     display: flex;
     width: 250px;
